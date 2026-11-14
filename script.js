@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     }, {
-        threshold: 0.2
+        threshold: 0.05
     });
 
     elementos.forEach(el => observador.observe(el));
