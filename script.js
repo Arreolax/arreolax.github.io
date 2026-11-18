@@ -34,13 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // CV Previews
     let previewsListas = 0;
 
-    function registrarCargaPreview() {
+    window.registrarCargaPreview = function () {
         previewsListas++;
 
         if (previewsListas >= 2) {
             desbloquearTarjetaCV();
         }
-    }
+    };
 
     function desbloquearTarjetaCV() {
         const btn = document.getElementById('btn-abrir-cv');
@@ -64,24 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    setTimeout(() => {
-        if (previewsListas < 2) {
-            desbloquearTarjetaCV();
-        }
-    }, 10000);
-
-    // CV
+    // CV Modal
     window.abrirModal = function () {
         const modal = document.getElementById('modal-imagen');
-        modal.classList.remove('hidden');
-        modal.classList.add('flex');
+        modal.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
         document.body.style.overflow = 'hidden';
     };
 
     window.cerrarModal = function () {
         const modal = document.getElementById('modal-imagen');
-        modal.classList.add('hidden');
-        modal.classList.remove('flex');
+        modal.classList.add('opacity-0', 'invisible', 'pointer-events-none');
         document.body.style.overflow = '';
     };
 
